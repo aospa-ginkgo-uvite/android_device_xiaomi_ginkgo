@@ -121,9 +121,6 @@ TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-l
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
-# NFC
-TARGET_USES_NQ_NFC := true
-
 #Retrofit 
 PARTITIONS := system vendor
 $(foreach p, $(call to-upper, $(PARTITIONS)), \
