@@ -253,6 +253,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
+    <!-- service tracker -->
+    <hal format="hidl">
+    <name>vendor.qti.hardware.servicetracker</name>
+    <transport>hwbinder</transport>
+    <fqname>@1.0::IServicetracker/default</fqname>
+    </hal>
     <!-- bluetooth -->
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
