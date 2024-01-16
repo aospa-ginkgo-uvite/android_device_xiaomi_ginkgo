@@ -207,7 +207,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc
 #Init
 PRODUCT_PACKAGES += \
-    fstab.qcom_ramdisk \
+    init.ginkgo.rc \
+    init.target.rc \
+    init.qti.dcvs.sh 
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
@@ -221,15 +223,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
 
+# Keylayouts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
+    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
+
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
     android.hardware.keymaster@4.1.vendor
 
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
+PRODUCT_VENDOR_PROPERTIES := \
+    ro.hardware.keystore_desede=true
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -330,6 +335,11 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor \
     libqti_vndfwk_detect.vendor
 
+# QC common
+TARGET_COMMON_QTI_COMPONENTS := \
+    init \
+    telephony \
+
 PRODUCT_ODM_PROPERTIES += \
     ro.vendor.qti.va_odm.support=1
 
@@ -337,7 +347,6 @@ PRODUCT_ODM_PROPERTIES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom_ramdisk \
-    init.class_main.sh \
     init.ginkgo.rc \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -349,12 +358,10 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
-
-# RCS
+    
+#Remove packages
 PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    PresencePolling \
-    RcsService
+    RemovePackages
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -363,11 +370,10 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     librmnetctl
 
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.5.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.secure_element@1.2.vendor
+ PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -403,18 +409,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
 
-# Telephony
-PRODUCT_PACKAGES += \
-    extphonelib \
-    extphonelib.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
