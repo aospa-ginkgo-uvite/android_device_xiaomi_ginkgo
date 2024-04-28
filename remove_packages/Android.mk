@@ -30,7 +30,20 @@ LOCAL_OVERRIDES_PACKAGES := \
     talkback \
     VZWAPNLib \
     VzwOmaTrigger \
-    WfcActivation
+    WfcActivation \
+    YouTube \
+    Photos \
+    Chrome64 \
+    DeskClockGoogle \
+    Drive \
+    Gmail2 \
+    TagGoogle \
+    CalculatorGoogle \
+    CalendarGoogle \
+    CrossDeviceServiceBroker \
+    deviceintegrationservice \
+    linktowindows \
+    virtual_keyboard
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_SRC_FILES := /dev/null
