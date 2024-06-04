@@ -6,7 +6,10 @@
 #
 
 # Board
-
+# Platform
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_BOARD_PLATFORM := trinket
+TRINKET := trinket
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -329,6 +332,10 @@ PRODUCT_PACKAGES += \
 #Remove packages
 PRODUCT_PACKAGES += \
     RemovePackages
+
+# Retrofit Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
 
 # RIL
 PRODUCT_PACKAGES += \
