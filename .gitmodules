@@ -1,0 +1,3 @@
+[submodule "ginkgo"]
+	path = ginkgo
+	url = https://github.com/ZorEl212/vendor_aospa_products_ginkgo
