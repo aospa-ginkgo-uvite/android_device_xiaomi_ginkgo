@@ -19,6 +19,11 @@ genfscon sysfs /devices/virtual/wakeup/wakeup                                   
 
 # Power
 genfscon proc /sys/kernel/sched_boost u:object_r:proc_sched_boost:s0
+genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pmi632@2:qcom,qpnp-smb5/power_supply/usb/ u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pmi632@2:qcom,qpnp-smb5/power_supply/battery/ u:object_r:sysfs_power_supply:s0
+
+# Viberator
+genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-03/1c40000.qcom,spmi\:qcom,pmi632@3\:qcom,vibrator@5700/leds/vibrator u:object_r:sysfs_vibrator:s0
 
 # Display
 genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/idle_encoder_mask         u:object_r:vendor_sysfs_graphics:s0

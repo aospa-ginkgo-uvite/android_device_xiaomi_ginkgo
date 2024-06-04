@@ -1,0 +1,2 @@
+allow vendor_hvdcp sysfs:file { open };
+allow vendor_hvdcp sysfs_power_supply:file { open read write getattr };
