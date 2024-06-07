@@ -1,3 +1,9 @@
 # Apps are no longer allowed open access to /dev/ashmem, unless they
 # target API level < Q.
 dontaudit untrusted_app ashmem_device:chr_file open;
+
+dontaudit {
+  flags_health_check
+  hal_camera_default
+  zygote
+} property_type:file { getattr read write open map };
